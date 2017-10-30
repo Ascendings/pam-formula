@@ -21,6 +21,7 @@ nss_ldap_conf:
   file.symlink:
     - name: {{ pam.nss_ldap_config }}
     - target: {{ pam.ldap_config }}
+    - force: True
     - require:
       - file: {{ pam.ldap_config }}
       - pkg: nss_ldap_pkg
