@@ -15,7 +15,7 @@ ldap:
 {% if pam.nss_ldap %}
 nss_ldap_pkg:
   pkg.installed:
-    - name: {{ pam.nss_ldap }}
+    - name: {{ pam.nss_ldap_pkg }}
 
 nss_ldap_conf:
   file.symlink:
