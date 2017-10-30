@@ -1,4 +1,7 @@
 pam:
+  # configuration file settings
+  config_owner: root
+  config_group: root
   # This is only needed for FreeBSD
   nss_ldap: False
   nss_ldap_pkg: False

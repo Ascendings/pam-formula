@@ -8,8 +8,8 @@ ldap:
   file.managed:
     - source: salt://pam/files/ldap.conf
     - template: jinja
-    - user: root
-    - group: root
+    - user: {{ pam.config_owner }}
+    - group: {{ pam.config_group }}
     - mode: 644
 
 {% if pam.nss_ldap %}
@@ -19,8 +19,8 @@ nss_ldap_pkg:
 
 nss_ldap_conf:
   file.symlink:
-    - name: {{ pam.ldap_config }}
-    - target: {{ pam.nss_ldap_config }}
+    - name: {{ pam.nss_ldap_config }}
+    - target: {{ pam.ldap_config }}
     - require:
       - file: {{ pam.ldap_config }}
       - pkg: nss_ldap_pkg
