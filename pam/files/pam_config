@@ -1,0 +1,8 @@
+{% for section, config in pam_config -%}
+# {{ section }}
+  {%- for line in config %}
+{{ line }}
+  {%- endfor %}
+
+{% endfor -%}
+
