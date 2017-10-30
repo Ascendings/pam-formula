@@ -2,7 +2,7 @@
 
 pam_mkhomedir:
   pkg.installed:
-    - name {{ pam.mkhomedir_pkg }}
+    - name: {{ pam.mkhomedir_pkg }}
 
 {% if pam.mkhomedir_config -%}
 {{ pam.mkhomedir_config }}:
