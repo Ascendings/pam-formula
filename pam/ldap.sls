@@ -11,7 +11,7 @@ ldap:
     - group: root
     - mode: 644
 
-{% if nss_ldap %}
+{% if pam.nss_ldap %}
 nss_ldap_pkg:
   pkg.installed:
     - name: {{ pam.nss_ldap }}
