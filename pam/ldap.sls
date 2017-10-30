@@ -7,6 +7,7 @@ ldap:
 {{ pam.ldap_config }}:
   file.managed:
     - source: salt://pam/files/ldap.conf
+    - template: jinja
     - user: root
     - group: root
     - mode: 644
