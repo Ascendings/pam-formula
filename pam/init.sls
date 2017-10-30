@@ -10,6 +10,6 @@ pam_config_{{ pam_file }}:
     - group: {{ pam.config_group }}
     - mode: 644
     - defaults:
-      - pam_config: {{ file_config }}
+      pam_config: {{ file_config }}
 {% endfor %}
 
