@@ -1,4 +1,8 @@
-{% set pam = salt['grains.filter_by']({
+{## Start with defaults from defaults.yaml ##}
+{% import_yaml 'pam/defaults.yaml' as default_settings %}
+
+{## Set up our configuration parameter map by OS ##}
+{% set flavor_map = salt['grains.filter_by']({
     'Ubuntu': {
         'ldap_pkg': 'libpam-ldapd',
         'nsd': 'nscd',
@@ -26,3 +30,14 @@
         'pam_config': {},
     },
 }, merge=salt['pillar.get']('pam:lookup')) %}
+
+{## Merge the flavor map over the default settings ##}
+{% do default_settings.pam.update(flavor_map) %}
+
+{## Merge in changes from pillar ##}
+{% set pam = salt['pillar.get'](
+  'pam',
+  default=default_settings.pam,
+  merge=True
+) %}
+

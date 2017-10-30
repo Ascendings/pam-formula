@@ -1,0 +1,5 @@
+pam:
+  # This is only needed for FreeBSD
+  nss_ldap_pkg: False
+  nss_ldap_config: False
+
