@@ -16,4 +16,11 @@
         'ccreds_pkg': 'libpam-ccreds',
         'pam_config': {},
     },
+    'Debian': {
+        'ldap_pkg': 'pam_ldap',
+        'ldap_config': '/usr/local/etc/ldap.conf',
+        'mkhomedir_pkg': 'pam_mkhomedir',
+        'mkhomedir_config': False,
+        'pam_config': {},
+    },
 }, merge=salt['pillar.get']('pam:lookup')) %}
