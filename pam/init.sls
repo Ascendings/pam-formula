@@ -1,6 +1,6 @@
 {% from "pam/map.jinja" import pam with context %}
 
-{% for pam_file, pam_config in pam.files.items() %}
+{% for pam_file, file_config in pam.files.items() %}
 pam_config_{{ pam_file }}:
   file.managed:
     - name: /etc/pam.d/{{ pam_file }}
