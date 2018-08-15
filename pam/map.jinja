@@ -20,6 +20,13 @@
         'ccreds_pkg': 'libpam-ccreds',
         'pam_config': {},
     },
+    'RedHat': {
+        'ldap_pkg': 'nss-pam-ldapd',
+        'ldap_config': '/etc/ldap.conf',
+        'mkhomedir_pkg': 'oddjob-mkhomedir',
+        'mkhomedir_config': '/etc/oddjob.conf.d/oddjobd-mkhomedir.conf',
+        'pam_config': {},
+    },
     'FreeBSD': {
         'config_owner': 'root',
         'config_group': 'wheel',
